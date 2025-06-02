@@ -1,23 +1,12 @@
-import { useRef } from "react";
 import { useTodoStore } from "./store";
-import { requestNotificationPermission } from "./utils";
 import { SideBar } from "./components/SideBar";
 import { TodoList } from "./components/TodoList";
 
 function App() {
   const { state, dispatch } = useTodoStore();
 
-  const initialRender = useRef(true);
-
-  const handleFirstClick = () => {
-    if (!initialRender.current) return;
-
-    requestNotificationPermission();
-    initialRender.current = false;
-  }
-
   return (
-    <div className="min-h-screen min-w-screen flex bg-gray-50 text-gray-800 overflow-hidden" onClick={handleFirstClick}>
+    <div className="min-h-screen min-w-screen flex bg-gray-50 text-gray-800 overflow-hidden">
       {/* Sidebar */}
       <SideBar state={state} dispatch={dispatch} />
 
