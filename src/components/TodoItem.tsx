@@ -15,23 +15,10 @@ export function TodoItem({ todo, state, dispatch }: { todo: Todo; state: State; 
         const newText = prompt("Edit todo text", todo.text);
         if (!newText) return;
 
-        const reminder = prompt(
-            "Set reminder (YYYY-MM-DD HH:MM), leave empty to skip:",
-            todo.reminder ? new Date(todo.reminder).toISOString().slice(0, 16).replace("T", " ") : ""
-        );
-
-        let reminderISO = undefined;
-        if (reminder) {
-            const r = new Date(reminder);
-            if (!isNaN(r.getTime())) {
-                reminderISO = r.toISOString();
-            }
-        }
-
         dispatch({
             type: "EDIT_TODO",
             groupId: state.activeGroupId,
-            todo: { ...todo, text: newText, reminder: reminderISO },
+            todo: { ...todo, text: newText },
         });
     }
 
@@ -53,11 +40,6 @@ export function TodoItem({ todo, state, dispatch }: { todo: Todo; state: State; 
                 className={`cursor-pointer flex-1 ${todo.done && "line-through text-gray-400"}`}
             >
                 {todo.text}
-                {todo.reminder && (
-                    <div className="text-xs text-indigo-500">
-                        ⏰ {new Date(todo.reminder).toLocaleString("en-UK")}
-                    </div>
-                )}
             </span>
 
             <div className="ml-2 flex gap-3">

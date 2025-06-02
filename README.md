@@ -13,7 +13,6 @@ The application is built as a Progressive Web App (PWA) and can be installed on 
 - Add, remove, and mark tasks as completed
 - Sort tasks by done status and name
 - Filter tasks by done status
-- Task reminders
 - Offline support
 - Installable as a PWA
 
