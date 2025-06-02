@@ -4,7 +4,7 @@ import type { Group } from "../types";
 
 export function SideBar({ state, dispatch }: { state: State; dispatch: React.Dispatch<Action> }) {
     const [newGroup, setNewGroup] = useState("");
-    const [hidden, setHidden] = useState(false);
+    const [hidden, setHidden] = useState(true);
 
     const addGroup = () => {
         if (!newGroup.trim()) return;

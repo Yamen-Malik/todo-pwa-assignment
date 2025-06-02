@@ -55,7 +55,7 @@ export function TodoItem({ todo, state, dispatch }: { todo: Todo; state: State; 
                 {todo.text}
                 {todo.reminder && (
                     <div className="text-xs text-indigo-500">
-                        ⏰ {new Date(todo.reminder).toLocaleString()}
+                        ⏰ {new Date(todo.reminder).toLocaleString("en-UK")}
                     </div>
                 )}
             </span>
